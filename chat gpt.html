@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juice Haven - Fresh & Organic Juices</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5cb85c;
+            --secondary-color: #ff9800;
+            --accent-color: #e91e63;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #4cae4c;
+            border-color: #4cae4c;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/api/placeholder/1200/600") center/cover no-repeat;
+            min-height: 500px;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .feature-box {
+            padding: 30px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .juice-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .juice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .juice-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .price-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .social-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Juice Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" href="#order">Order Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center " id="home"  style="background-image:url(https://thumbs.dreamstime.com/z/fresh-mixed-fruits-background-healthy-eating-dieting-50242177.jpg); height: 100%;">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Fresh & Organic Juices For A Healthier Life</h1>
+            <p class="lead mb-5">Handcrafted with love using only the freshest ingredients</p>
+            <a href="#menu" class="btn btn-primary btn-lg me-3">Explore Our Menu</a>
+            <a href="#order" class="btn btn-outline-light btn-lg">Order Online</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box text-center h-100">
+                        <i class="fas fa-leaf feature-icon"></i>
+                        <h3>100% Organic</h3>
+                        <p>We use only certified organic fruits and vegetables to ensure you get the purest nutrition.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center h-100">
+                        <i class="fas fa-blender feature-icon"></i>
+                        <h3>Freshly Squeezed</h3>
+                        <p>Our juices are made to order, ensuring maximum freshness and nutritional benefits.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center h-100">
+                        <i class="fas fa-truck feature-icon"></i>
+                        <h3>Fast Delivery</h3>
+                        <p>Enjoy our delicious juices delivered right to your doorstep within 30 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://insanelygoodrecipes.com/wp-content/uploads/2021/10/Delicious-Fruit-Juices-Orange-Kiwi-and-Strawberry.jpg" alt="About Juice Haven" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Our Story</h2>
+                    <p class="lead">Juice Haven started with a simple mission: to make healthy living delicious and accessible to everyone.</p>
+                    <p>Founded in 2018 by health enthusiasts Sarah and Michael, we began as a small juice cart at the local farmers market. Our commitment to quality and taste quickly gained us a loyal following, allowing us to open our first store downtown.</p>
+                    <p>Today, we continue to source the finest organic ingredients and craft each juice with care. We believe that what you put into your body matters, which is why we never add sugars, preservatives, or artificial ingredients.</p>
+                    <a href="#menu" class="btn btn-primary mt-3">Discover Our Juices</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-5 bg-light" id="menu">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Juice Menu</h2>
+            <div class="row g-4">
+                <!-- Juice Item 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="juice-card card h-100">
+                        <img src="" class="card-img-top" alt="Green Detox Juice">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Green Detox</h5>
+                                <span class="price-tag">$7.99</span>
+                            </div>
+                            <p class="card-text">Spinach, kale, cucumber, celery, apple, and lemon. A perfect cleansing blend rich in vitamins and minerals.</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge bg-light text-dark me-2 mb-2">Detox</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Immune Boost</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Low Calorie</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juice Item 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="juice-card card h-100">
+                        <img src="" class="card-img-top" alt="Berry Blast Juice">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Berry Blast</h5>
+                                <span class="price-tag">$8.49</span>
+                            </div>
+                            <p class="card-text">Strawberries, blueberries, raspberries, banana, and almond milk. A delicious antioxidant powerhouse.</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge bg-light text-dark me-2 mb-2">Antioxidant</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Energy</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Dairy-Free</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juice Item 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="juice-card card h-100">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Tropical Paradise Juice">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Tropical Paradise</h5>
+                                <span class="price-tag">$8.99</span>
+                            </div>
+                            <p class="card-text">Mango, pineapple, passion fruit, coconut water, and a hint of mint. A vacation in a glass!</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge bg-light text-dark me-2 mb-2">Hydrating</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Vitamin C</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Refreshing</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juice Item 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="juice-card card h-100">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Carrot Ginger Turmeric Juice">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Immunity Booster</h5>
+                                <span class="price-tag">$7.99</span>
+                            </div>
+                            <p class="card-text">Carrot, orange, ginger, turmeric, and lemon. A powerful blend to strengthen your immune system.</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge bg-light text-dark me-2 mb-2">Anti-Inflammatory</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Immune Support</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Vitamin A</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juice Item 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="juice-card card h-100">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Beet Root Juice">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Heart Beet</h5>
+                                <span class="price-tag">$8.49</span>
+                            </div>
+                            <p class="card-text">Beetroot, apple, carrot, ginger, and lemon. Great for improving circulation and athletic performance.</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge bg-light text-dark me-2 mb-2">Athletic Performance</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Heart Health</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Energizing</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juice Item 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="juice-card card h-100">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Protein Power Smoothie">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Protein Power</h5>
+                                <span class="price-tag">$9.49</span>
+                            </div>
+                            <p class="card-text">Banana, peanut butter, plant protein, almond milk, cacao, and dates. Perfect post-workout recovery.</p>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge bg-light text-dark me-2 mb-2">High Protein</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Muscle Recovery</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Filling</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Juice Section -->
+    <section class="py-5" id="order">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <img src="/api/placeholder/600/400" alt="Custom Juice" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="mb-4">Create Your Own Juice</h2>
+                    <p class="lead">Can't find what you're looking for? Customize your perfect blend!</p>
+                    <p>Choose from our wide selection of fresh fruits and vegetables, add your preferred base, and select optional boosters to create a juice that's uniquely yours.</p>
+                    <p>Our juice experts will help you create a balanced and delicious combination based on your taste preferences and health goals.</p>
+                    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#customJuiceModal">Start Creating</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light" id="testimonials">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="/api/placeholder/80/80" alt="Customer" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-1">Emily Johnson</h5>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>"I've been doing the 3-day juice cleanse for the past six months, and I've never felt better! The Green Detox is my absolute favorite. The staff is always friendly and knowledgeable about the health benefits of each juice."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="/api/placeholder/80/80" alt="Customer" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-1">David Martinez</h5>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>"As an athlete, proper nutrition is crucial for my performance. The Protein Power smoothie has become an essential part of my recovery routine. I love that I can customize the ingredients to match my specific needs."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="mb-4">Visit Us</h2>
+                    <div class="contact-info mb-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-map-marker-alt mt-1"></i>
+                            <div>
+                                <h5 class="mb-1">Main Store</h5>
+                                <p class="mb-0">123 Healthy Street, Green City, 10001</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-clock mt-1"></i>
+                            <div>
+                                <h5 class="mb-1">Opening Hours</h5>
+                                <p class="mb-0">Monday - Friday: 7:00 AM - 8:00 PM<br>Saturday - Sunday: 8:00 AM - 7:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-phone-alt mt-1"></i>
+                            <div>
+                                <h5 class="mb-1">Phone</h5>
+                                <p class="mb-0">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <i class="fas fa-envelope mt-1"></i>
+                            <div>
+                                <h5 class="mb-1">Email</h5>
+                                <p class="mb-0">hello@juicehaven.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Send Us a Message</h2>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option selected>Select Subject</option>
+                                <option>General Inquiry</option>
+                                <option>Feedback</option>
+                                <option>Catering Services</option>
+                                <option>Bulk Orders</option>
+                                <option>Careers</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Join Our Newsletter</h2>
+            <p class="lead mb-4">Subscribe to receive updates on new flavors, special offers, and health tips!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button class="btn btn-light" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-4">Juice Haven</h4>
+                    <p>Our mission is to provide delicious, nutritious juices that help you feel your best every day.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#menu" class="text-white text-decoration-none">Menu</a></li>
+                        <li class="mb-2"><a href="#order" class="text-white text-decoration-none">Order Online</a></li>
+                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Juice Cleanse Programs</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Corporate Catering</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Event Services</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Gift Cards</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Download Our App</h5>
+                    <p>Order on the go, earn rewards, and more!</p>
+                    <div class="d-flex flex-column flex-sm-row">
+                        <a href="#" class="me-sm-3 mb-3 mb-sm-0">
+                            <img src="/api/placeholder/140/40" alt="App Store" class="img-fluid">
+                        </a>
+                        <a href="#">
+                            <img src="/api/placeholder/140/40" alt="Google Play" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Juice Haven. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white text-decoration-none me-3">Terms of Service</a>
+                    <a href="#" class="text-white text-decoration-none">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Juice Modal -->
+    <div class="modal fade" id="customJuiceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Your Custom Juice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-4">
+                            <h6>1. Choose Your Base (Select one)</h6>
+                            <div class="row g-3">
+                                <div class
